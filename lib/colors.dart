@@ -59,4 +59,6 @@ mixin myStyles {
       TextStyle(color: myColors.colTextSecondaryOnAccent);
   static const tsPrimaryHeading =
       TextStyle(color: myColors.colTextPrimary, fontSize: 20.0);
+  static const tsWebText =
+      TextStyle(fontSize: 30.0, height: 1.5);
 }
