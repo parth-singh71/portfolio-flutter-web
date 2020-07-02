@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/colors.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/basic_webpage.dart';
+import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 import 'package:portfolio/widgets/bullet_text.dart';
 import 'package:portfolio/widgets/elevated_container.dart';
+import 'package:portfolio/widgets/fat_divider.dart';
 import 'package:portfolio/widgets/web_text.dart';
 
 class AboutPage extends StatefulWidget {
@@ -18,6 +19,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return BasicWebpage(
       webpage: Webpage.about,
+      pageTitle: "About Me",
       body: body(),
     );
   }
@@ -31,7 +33,7 @@ class _AboutPageState extends State<AboutPage> {
             tag: "myDP",
             child: CircleAvatar(
               radius: 95.0,
-              backgroundColor: Colors.blue,
+              backgroundColor: myColors.primaryColor,
               backgroundImage: AssetImage(
                 'images/ps.jpg',
               ),
@@ -41,12 +43,7 @@ class _AboutPageState extends State<AboutPage> {
             'About Me',
             style: TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4.0), color: Colors.black),
-          ),
+          FatDivider(),
           SizedBox(height: 50.0),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 50.0),

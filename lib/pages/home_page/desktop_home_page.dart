@@ -6,10 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/basic_webpage.dart';
+import 'package:portfolio/utils/responsive_widget.dart';
+import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 import 'package:portfolio/widgets/bullet_text.dart';
 import 'package:portfolio/widgets/contact_tiles.dart';
 import 'package:portfolio/widgets/elevated_container.dart';
+import 'package:portfolio/widgets/fat_divider.dart';
 import 'package:portfolio/widgets/project_card.dart';
 import 'package:portfolio/widgets/web_text.dart';
 import 'package:portfolio/colors.dart';
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(
+      pageTitle: "Home",
       webpage: Webpage.home,
       body: body(),
     );
@@ -79,14 +82,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
             ),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
-              color: Colors.white,
-            ),
-          ),
+          FatDivider(color: Colors.white),
           SizedBox(height: 50.0),
           Row(
             children: [
@@ -106,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink: 'mailto:parth.singh71@gmail.com',
+                      urlLink: contactLinks.email,
                     ),
                     ContactTile(
                       title: 'Github',
@@ -120,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink: 'https://github.com/parth-singh71',
+                      urlLink: contactLinks.github,
                     ),
                   ],
                 ),
@@ -141,8 +137,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink:
-                          'https://stackoverflow.com/users/10129545/parth-singh71',
+                      urlLink: contactLinks.stack_overflow,
                     ),
                     ContactTile(
                       title: 'Play Store',
@@ -156,8 +151,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink:
-                          'https://play.google.com/store/apps/developer?id=Psect',
+                      urlLink: contactLinks.google_play,
                     ),
                   ],
                 ),
@@ -178,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink: 'https://www.linkedin.com/in/parthsingh71/',
+                      urlLink: contactLinks.linkedin,
                     ),
                     ContactTile(
                       title: 'Facebook',
@@ -192,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink: 'https://www.facebook.com/parth.singh3371',
+                      urlLink: contactLinks.facebook,
                     ),
                   ],
                 ),
@@ -213,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink: 'https://www.instagram.com/parth.singh71/',
+                      urlLink: contactLinks.instagram,
                     ),
                     ContactTile(
                       title: 'Twitter',
@@ -227,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: 20.0,
                         color: Colors.white.withOpacity(0.5),
                       ),
-                      urlLink: 'https://twitter.com/parth_singh71',
+                      urlLink: contactLinks.twitter,
                     ),
                   ],
                 ),
@@ -248,14 +242,7 @@ class _HomePageState extends State<HomePage> {
             'Top Projects',
             style: TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
-              color: Colors.black,
-            ),
-          ),
+          FatDivider(),
           SizedBox(height: 50.0),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 50.0),
@@ -266,70 +253,36 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ProjectCard(
                       context: context,
-                      title: "Facial Feature Detection",
-                      description:
-                          "Developed a deep neural network model to predict different facial features of a person which can be used in face reading.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "June 2020",
-                      technologies:
-                          "Deep Learning | keras | Mask RCNN | Python",
-
-                      onPressed: () {},
+                      projectTitle: facialFeatureDetails["projectTitle"],
+                      projectSummary: facialFeatureDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: facialFeatureDetails["projectDuration"],
+                      technologies: facialFeatureDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpFacialFeature);
+                      },
                     ),
                     ProjectCard(
                       context: context,
-                      title: "Writers Bog",
-                      description:
-                          "Developed a social networking platform where people can express themselves using words. Had options to like, comment and share posts.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "July 2019 - August 2019",
-                      technologies: "Android | Python | mysql | aws",
-                      onPressed: () {},
+                      projectTitle: writersBlogDetails["projectTitle"],
+                      projectSummary: writersBlogDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: writersBlogDetails["projectDuration"],
+                      technologies: writersBlogDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpWritersBlog);
+                      },
                     ),
                     ProjectCard(
                       context: context,
-                      title: "Body Part Detection",
-                      description:
-                          "Developed a convolutional neural network model to predict which body part is being pointed by the person using keras and Python.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "June 2019 - July 2019",
-                      technologies: "Deep Learning | keras | Python",
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ProjectCard(
-                      context: context,
-                      title: "Vision Board",
-                      description:
-                          "Developed a native android app where people could upload their goals. People could get daily reminders to spend some time for their dreams, Also had an inbuilt lock for privacy.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "February 2019 - March 2019",
-                      technologies: "Android | Sqlite",
-                      onPressed: () {},
-                    ),
-                    ProjectCard(
-                      context: context,
-                      title: "ChatOn",
-                      description:
-                          "Developed a hybrid (Android / iOS) realtime chatting app using Flutter (Frontend), Django and Django REST Framework (Backend). Used Heroku Server to deploy the chatting API.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "May 2020",
-                      technologies: "Flutter | Django | Dart | Python | heroku",
-                      onPressed: () {},
-                    ),
-                    ProjectCard(
-                      context: context,
-                      title: "Timeable",
-                      description:
-                          "Developed a timetable management solution for college students and teachers, Users can set their timetable in the app then the app will notify 30 minutes prior to any upcoming classes for the day.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "December 2019 - January 2020",
-                      technologies: "Flutter | Sqflite | Dart",
-                      onPressed: () {},
+                      projectTitle: bodyPartDetails["projectTitle"],
+                      projectSummary: bodyPartDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: bodyPartDetails["projectDuration"],
+                      technologies: bodyPartDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpWritersBlog);
+                      },
                     ),
                   ],
                 ),
@@ -338,33 +291,75 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ProjectCard(
                       context: context,
-                      title: "Friday AI",
-                      description:
-                          "Developed a native chatbot android app using java. Developed  a custom API using Python which took the user input message and responded accordingly. The chatbot could talk, type, search the web, crack jokes, Open third party apps etc.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "July 2019",
-                      technologies: "nlp | Python | Android | aws",
-                      onPressed: () {},
+                      projectTitle: visionBoardDetails["projectTitle"],
+                      projectSummary: visionBoardDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: visionBoardDetails["projectDuration"],
+                      technologies: visionBoardDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpVisionBoard);
+                      },
                     ),
                     ProjectCard(
                       context: context,
-                      title: "School Manager",
-                      description:
-                          "Developed a Django website and API for managing multiple schools. Teachers could create classrooms under an organization, add participants and share the study material to the students.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "May 2020",
-                      technologies: "Django | Django REST Framework | Python",
-                      onPressed: () {},
+                      projectTitle: chatOnDetails["projectTitle"],
+                      projectSummary: chatOnDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: chatOnDetails["projectDuration"],
+                      technologies: chatOnDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpChatOn);
+                      },
                     ),
                     ProjectCard(
                       context: context,
-                      title: "Gender Predictor",
-                      description:
-                          "Created a python code which detects the gender of a person by analysing their name using Natural Language Processing and Python.",
-                      // imagePath: 'images/python.png',
-                      timePeriod: "July 2019",
-                      technologies: "nlp | Python",
-                      onPressed: () {},
+                      projectTitle: timeableDetails["projectTitle"],
+                      projectSummary: timeableDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: timeableDetails["projectDuration"],
+                      technologies: timeableDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpTimeable);
+                      },
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ProjectCard(
+                      context: context,
+                      projectTitle: fridayAIDetails["projectTitle"],
+                      projectSummary: fridayAIDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: fridayAIDetails["projectDuration"],
+                      technologies: fridayAIDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpFridayAI);
+                      },
+                    ),
+                    ProjectCard(
+                      context: context,
+                      projectTitle: schoolManagerDetails["projectTitle"],
+                      projectSummary: schoolManagerDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration: schoolManagerDetails["projectDuration"],
+                      technologies: schoolManagerDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpSchoolManager);
+                      },
+                    ),
+                    ProjectCard(
+                      context: context,
+                      projectTitle: genderPredictorDetails["projectTitle"],
+                      projectSummary: genderPredictorDetails[
+                          "projectSummary"], // imagePath: 'images/python.png',
+                      projectDuration:
+                          genderPredictorDetails["projectDuration"],
+                      technologies: genderPredictorDetails["technologies"],
+                      onPressed: () {
+                        Navigator.pushNamed(context, kpGenderPredictor);
+                      },
                     ),
                   ],
                 ),
@@ -393,13 +388,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
             ),
-            Container(
-              width: 150.0,
-              height: 10.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white),
-            ),
+            FatDivider(color: Colors.white),
             SizedBox(height: 50.0),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 50.0),
@@ -476,12 +465,7 @@ class _HomePageState extends State<HomePage> {
             'About Me',
             style: TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4.0), color: Colors.black),
-          ),
+          FatDivider(),
           SizedBox(height: 50.0),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 50.0),
@@ -726,14 +710,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.black,
             ),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
-              color: Colors.black,
-            ),
-          ),
+          FatDivider(),
           SizedBox(height: 50.0),
           ElevatedContainer(
             padding: EdgeInsets.all(50.0),
@@ -837,5 +814,17 @@ class MyClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return false;
+  }
+}
+
+class MobileHomePage extends StatefulWidget {
+  @override
+  _MobileHomePageState createState() => _MobileHomePageState();
+}
+
+class _MobileHomePageState extends State<MobileHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return;
   }
 }

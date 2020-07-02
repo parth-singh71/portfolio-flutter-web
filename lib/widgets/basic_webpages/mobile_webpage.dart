@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/footer.dart';
-import 'package:portfolio/widgets/header.dart';
+import 'package:portfolio/widgets/footers/desktop_footer.dart';
+import 'package:portfolio/widgets/headers/desktop_header.dart';
 
-class BasicWebpage extends StatelessWidget {
-  const BasicWebpage(
-      {Key key, this.body, this.webpage, this.customBody, this.backgroundColor})
-      : super(key: key);
+class DesktopWebpage extends StatelessWidget {
+  const DesktopWebpage({
+    Key key,
+    @required this.backgroundColor,
+    @required this.customBody,
+    @required this.webpage,
+    @required this.body,
+  }) : super(key: key);
 
-  final Widget body, customBody;
-  final Webpage webpage;
   final Color backgroundColor;
+  final Widget customBody;
+  final Webpage webpage;
+  final Widget body;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +29,9 @@ class BasicWebpage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Header(webpage: webpage),
+                    DesktopHeader(webpage: webpage),
                     body,
-                    Footer(),
+                    DesktopFooter(webpage: webpage),
                   ],
                 ),
               ),

@@ -3,7 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/basic_webpage.dart';
+import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
+import 'package:portfolio/widgets/fat_divider.dart';
 
 class SkillsPage extends StatefulWidget {
   SkillsPage({Key key}) : super(key: key);
@@ -16,6 +17,7 @@ class _SkillsPageState extends State<SkillsPage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(
+      pageTitle: "Skills",
       webpage: Webpage.skills,
       body: body(),
     );
@@ -30,12 +32,7 @@ class _SkillsPageState extends State<SkillsPage> {
             'Skills',
             style: TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4.0), color: Colors.black),
-          ),
+          FatDivider(),
           SizedBox(height: 50.0),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 50.0),

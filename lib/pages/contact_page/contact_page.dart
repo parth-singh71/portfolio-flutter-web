@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:portfolio/colors.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/basic_webpage.dart';
+import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 import 'package:portfolio/widgets/contact_tiles.dart';
 import 'package:portfolio/widgets/elevated_container.dart';
+import 'package:portfolio/widgets/fat_divider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatefulWidget {
@@ -19,6 +20,7 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(
+      pageTitle: "Contact Me",
       webpage: Webpage.contact,
       body: body(),
     );
@@ -33,14 +35,7 @@ class _ContactPageState extends State<ContactPage> {
             'Contact Me',
             style: TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
           ),
-          Container(
-            width: 150.0,
-            height: 10.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
-              color: Colors.black,
-            ),
-          ),
+          FatDivider(),
           SizedBox(height: 50.0),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 100.0),
@@ -87,27 +82,25 @@ class _ContactPageState extends State<ContactPage> {
                                   title: 'Email',
                                   subtitle: 'parth.singh71@gmail.com',
                                   icon: Icons.email,
-                                  urlLink: 'mailto:parth.singh71@gmail.com',
+                                  urlLink: contactLinks.email,
                                 ),
                                 ContactTile(
                                   title: 'Github',
                                   subtitle: 'parth-singh71',
                                   icon: FontAwesome.github,
-                                  urlLink: 'https://github.com/parth-singh71',
+                                  urlLink: contactLinks.github,
                                 ),
                                 ContactTile(
                                   title: 'StackOverflow',
                                   subtitle: 'parth.singh71',
                                   icon: FontAwesome.stack_overflow,
-                                  urlLink:
-                                      'https://stackoverflow.com/users/10129545/parth-singh71',
+                                  urlLink: contactLinks.stack_overflow,
                                 ),
                                 ContactTile(
                                   title: 'Play Store',
                                   subtitle: 'Psect',
                                   icon: FontAwesome5Brands.google_play,
-                                  urlLink:
-                                      'https://play.google.com/store/apps/developer?id=Psect',
+                                  urlLink: contactLinks.google_play,
                                 ),
                               ],
                             ),
@@ -121,28 +114,25 @@ class _ContactPageState extends State<ContactPage> {
                                   title: 'LinkedIn',
                                   subtitle: 'parthsingh71',
                                   icon: FontAwesome.linkedin,
-                                  urlLink:
-                                      'https://www.linkedin.com/in/parthsingh71/',
+                                  urlLink: contactLinks.linkedin,
                                 ),
                                 ContactTile(
                                   title: 'Facebook',
                                   subtitle: 'parth.singh71@gmail.com',
                                   icon: FontAwesome.facebook,
-                                  urlLink:
-                                      'https://www.facebook.com/parth.singh3371',
+                                  urlLink: contactLinks.facebook,
                                 ),
                                 ContactTile(
                                   title: 'Instagram',
                                   subtitle: 'parth.singh71',
                                   icon: FontAwesome.instagram,
-                                  urlLink:
-                                      'https://www.instagram.com/parth.singh71/',
+                                  urlLink: contactLinks.instagram,
                                 ),
                                 ContactTile(
                                   title: 'Twitter',
                                   subtitle: 'parth_singh71',
                                   icon: FontAwesome.twitter,
-                                  urlLink: 'https://twitter.com/parth_singh71',
+                                  urlLink: contactLinks.twitter,
                                 ),
                               ],
                             ),
@@ -158,7 +148,7 @@ class _ContactPageState extends State<ContactPage> {
                         margin: EdgeInsets.all(0.0),
                         child: RaisedButton(
                           onPressed: () {
-                            launch('mailto:parth.singh71@gmail.com');
+                            launch(contactLinks.email);
                           },
                           color: Colors.green,
                           child: Text(
