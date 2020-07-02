@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/links.dart';
+import 'package:portfolio/colors.dart';
 
-class DesktopHeader extends StatelessWidget {
-  const DesktopHeader({Key key, this.webpage}) : super(key: key);
+class TabletHeader extends StatelessWidget {
+  const TabletHeader({Key key, this.webpage}) : super(key: key);
 
   final Webpage webpage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: myColors.primaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

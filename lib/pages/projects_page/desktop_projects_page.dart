@@ -4,14 +4,14 @@ import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
 import 'package:portfolio/widgets/project_card.dart';
 
-class ProjectsPage extends StatefulWidget {
-  ProjectsPage({Key key}) : super(key: key);
+class DesktopProjectsPage extends StatefulWidget {
+  DesktopProjectsPage({Key key}) : super(key: key);
 
   @override
-  _ProjectsPageState createState() => _ProjectsPageState();
+  _DesktopProjectsPageState createState() => _DesktopProjectsPageState();
 }
 
-class _ProjectsPageState extends State<ProjectsPage> {
+class _DesktopProjectsPageState extends State<DesktopProjectsPage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(

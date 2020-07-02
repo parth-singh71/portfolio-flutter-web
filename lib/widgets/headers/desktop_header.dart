@@ -1,43 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/links.dart';
+import 'package:portfolio/widgets/site_logo.dart';
+import 'package:portfolio/colors.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key key, this.webpage}) : super(key: key);
+class DesktopHeader extends StatelessWidget {
+  const DesktopHeader({Key key, this.webpage}) : super(key: key);
 
   final Webpage webpage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: myColors.primaryColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Text(
-                  kAppName,
-                  style: GoogleFonts.pacifico(
-                    color: Colors.white,
-                    fontSize: 50.0,
-                    fontStyle: FontStyle.normal,
-                  ),
-                ),
-                Text(
-                  kTagLine,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(
-                    color: Color(0x66ffffff),
-                    fontSize: 17.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          SiteLogo(),
           Row(
             children: [
               WebpageLink(

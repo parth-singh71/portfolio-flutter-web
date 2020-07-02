@@ -9,14 +9,14 @@ import 'package:portfolio/widgets/elevated_container.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPage extends StatefulWidget {
-  ContactPage({Key key}) : super(key: key);
+class TabletContactPage extends StatefulWidget {
+  TabletContactPage({Key key}) : super(key: key);
 
   @override
-  _ContactPageState createState() => _ContactPageState();
+  _TabletContactPageState createState() => _TabletContactPageState();
 }
 
-class _ContactPageState extends State<ContactPage> {
+class _TabletContactPageState extends State<TabletContactPage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(

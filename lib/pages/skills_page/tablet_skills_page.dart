@@ -6,14 +6,14 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
 
-class SkillsPage extends StatefulWidget {
-  SkillsPage({Key key}) : super(key: key);
+class TabletSkillsPage extends StatefulWidget {
+  TabletSkillsPage({Key key}) : super(key: key);
 
   @override
-  _SkillsPageState createState() => _SkillsPageState();
+  _TabletSkillsPageState createState() => _TabletSkillsPageState();
 }
 
-class _SkillsPageState extends State<SkillsPage> {
+class _TabletSkillsPageState extends State<TabletSkillsPage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(

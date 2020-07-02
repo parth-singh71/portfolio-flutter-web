@@ -16,7 +16,7 @@ class ResponsiveWidget extends StatelessWidget {
         return largeScreen;
       } else if (constraints.maxWidth > 800 && constraints.maxWidth < 1200) {
         //if medium screen not available, then return large screen
-        return mediumScreen ?? largeScreen;
+        return mediumScreen ?? smallScreen;
       } else {
         //if small screen implementation not available, then return large screen
         return smallScreen ?? largeScreen;

@@ -35,20 +35,22 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 mixin myColors {
-  static const Color primaryColor = Color(0xff000000);
-  static const Color secondaryColor = Color(0xee000000);
-  static Color accentColor = Colors.blue;
-  static const colTextPrimary = Color(0xffffffff);
-  static const colTextSecondary = Color(0x66ffffff);
-  static const colTextSecondaryLight = Color(0x33ffffff);
+  static const Color primaryColor = Colors.blue;
+  static Color secondaryColor = Colors.blue.shade300;
+  static Color accentColor = Colors.green;
+  static const colTextPrimary = Color(0xff000000);
+  static const colTextSecondary = Color(0x66000000);
+  static const colTextSecondaryLight = Color(0x33000000);
   static const colTextOnPrimary = colTextPrimary;
   static const colTextOnAccent = Color(0xffffffff);
   static const colTextSecondaryOnAccent = Color(0x99ffffff);
 }
 
 mixin myStyles {
+  static const tsAppBarTitle = TextStyle(color: Colors.white);
   static const tsPrimary = TextStyle(color: myColors.colTextPrimary);
   static const tsSecondary = TextStyle(color: myColors.colTextSecondary);
   static const tsSecondaryLight =
@@ -59,6 +61,17 @@ mixin myStyles {
       TextStyle(color: myColors.colTextSecondaryOnAccent);
   static const tsPrimaryHeading =
       TextStyle(color: myColors.colTextPrimary, fontSize: 20.0);
-  static const tsWebText =
-      TextStyle(fontSize: 30.0, height: 1.5);
+  static const tsWebText = TextStyle(fontSize: 30.0, height: 1.5);
+  static const tsMobileWebText = TextStyle(fontSize: 20.0, height: 1.5);
+  static const tsMobileHeading =
+      TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold);
+  static TextStyle tsMobileCodeTyper = GoogleFonts.droidSansMono(
+    fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+  );
+  static TextStyle tsMobileSimpleTyper = TextStyle(
+    fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    height: 1.5,
+  );
 }

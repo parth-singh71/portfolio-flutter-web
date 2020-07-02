@@ -6,9 +6,10 @@ import 'package:portfolio/colors.dart';
 import 'package:portfolio/widgets/bullet_text.dart';
 import 'package:portfolio/widgets/elevated_container.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
+import 'package:portfolio/constants.dart';
 
-class ProjectBody extends StatelessWidget {
-  ProjectBody({
+class MobileProjectBody extends StatelessWidget {
+  MobileProjectBody({
     @required this.projectDetailsList,
     @required this.projectDuration,
     this.projectLinks,
@@ -37,12 +38,11 @@ class ProjectBody extends StatelessWidget {
         children: [
           Text(
             projectTitle,
-            style: TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
+            style: myStyles.tsMobileHeading,
           ),
           FatDivider(),
           SizedBox(height: 50.0),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 100.0),
             child: Column(
               children: [
                 TyperAnimatedTextKit(
@@ -50,7 +50,7 @@ class ProjectBody extends StatelessWidget {
                   text: [
                     projectSummary,
                   ],
-                  textStyle: myStyles.tsWebText,
+                  textStyle: myStyles.tsMobileSimpleTyper,
                   isRepeatingAnimation: false,
                   speed: Duration(milliseconds: 80),
                   textAlign: TextAlign.center,
@@ -60,112 +60,89 @@ class ProjectBody extends StatelessWidget {
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          //todo: project details
-                          Expanded(
-                            child: Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    technologies,
-                                    style: myStyles.tsWebText.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 35.0,
-                                    ),
-                                  ),
-                                  Text(
-                                    '$projectDuration | Individual Project',
-                                    style: myStyles.tsWebText.copyWith(
-//                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0,
-                                        color: myColors.colTextSecondary),
-                                  ),
-                                ]
-                                  ..addAll(
-                                      getProjectDetails(projectDetailsList))
-                                  ..addAll(
-                                    [
-                                      SizedBox(height: 30.0),
-                                      RichText(
-                                        text: TextSpan(
-                                            text: services != null
-                                                ? "Services: "
-                                                : "",
-                                            style: myStyles.tsWebText.copyWith(
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.bold,
-                                                color: myColors.colTextPrimary),
-                                            children: [
-                                              TextSpan(
-                                                text: services != null
-                                                    ? services
-                                                    : "",
-                                                style:
-                                                    myStyles.tsWebText.copyWith(
-                                                  fontSize: 20.0,
-                                                  color:
-                                                      myColors.colTextPrimary,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                              )
-                                            ]),
-//
-                                      ),
-                                      RichText(
-                                        text: TextSpan(
-                                            text:
-                                                tools != null ? "Tools: " : "",
-                                            style: myStyles.tsWebText.copyWith(
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.bold,
-                                                color: myColors.colTextPrimary),
-                                            children: [
-                                              TextSpan(
-                                                text:
-                                                    tools != null ? tools : "",
-                                                style:
-                                                    myStyles.tsWebText.copyWith(
-                                                  fontSize: 20.0,
-                                                  color:
-                                                      myColors.colTextPrimary,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                              )
-                                            ]),
-//
-                                      ),
-                                    ],
-                                  ),
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              technologies,
+                              style: myStyles.tsWebText.copyWith(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 35.0,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 50.0,
-                          ),
-                          //todo: images
-                          Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [Image.asset('images/ps.jpg')],
+                            Text(
+                              '$projectDuration | Individual Project',
+                              style: myStyles.tsMobileWebText.copyWith(
+                                fontSize: 15.0,
+                                color: myColors.colTextSecondary,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [Image.asset('images/ps.jpg')],
+                            SizedBox(height: 20.0),
+                          ]
+                            ..addAll(getProjectDetails(projectDetailsList))
+                            ..addAll(
+                              [
+                                SizedBox(height: 30.0),
+                                RichText(
+                                  text: TextSpan(
+                                      text:
+                                          services != null ? "Services: " : "",
+                                      style: myStyles.tsWebText.copyWith(
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: myColors.colTextPrimary),
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              services != null ? services : "",
+                                          style: myStyles.tsWebText.copyWith(
+                                            fontSize: 15.0,
+                                            color: myColors.colTextPrimary,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        )
+                                      ]),
+//
+                                ),
+                                RichText(
+                                  text: TextSpan(
+                                      text: tools != null ? "Tools: " : "",
+                                      style: myStyles.tsWebText.copyWith(
+                                          fontSize: 15.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: myColors.colTextPrimary),
+                                      children: [
+                                        TextSpan(
+                                          text: tools != null ? tools : "",
+                                          style: myStyles.tsWebText.copyWith(
+                                            fontSize: 15.0,
+                                            color: myColors.colTextPrimary,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        )
+                                      ]),
+//
+                                ),
+                              ],
                             ),
-                          )
+                        ),
+                      ),
+                      //todo: images
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(kNoImgAvailable),
+                          Image.asset(kNoImgAvailable)
                         ],
                       ),
+
                       SizedBox(height: 50.0),
                       Text(
                         "Check it out today!\nProject links are given below.",
                         textAlign: TextAlign.center,
-                        style: myStyles.tsWebText,
+                        style: myStyles.tsMobileWebText,
                       ),
                       SizedBox(height: 20.0),
                       Container(
@@ -207,7 +184,7 @@ class ProjectBody extends StatelessWidget {
       result.add(
         BulletText(
           text: sentence,
-          style: myStyles.tsWebText,
+          style: myStyles.tsMobileWebText,
         ),
       );
     }

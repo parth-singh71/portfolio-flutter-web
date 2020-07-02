@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/utils/responsive_widget.dart';
+import 'package:portfolio/pages/home_page/home_page.dart';
 import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 import 'package:portfolio/widgets/bullet_text.dart';
 import 'package:portfolio/widgets/contact_tiles.dart';
@@ -17,14 +17,12 @@ import 'package:portfolio/widgets/web_text.dart';
 import 'package:portfolio/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
-
+class DesktopHomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _DesktopHomePageState createState() => _DesktopHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DesktopHomePageState extends State<DesktopHomePage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(
@@ -251,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: facialFeatureDetails["projectTitle"],
                       projectSummary: facialFeatureDetails[
@@ -262,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, kpFacialFeature);
                       },
                     ),
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: writersBlogDetails["projectTitle"],
                       projectSummary: writersBlogDetails[
@@ -273,7 +271,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, kpWritersBlog);
                       },
                     ),
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: bodyPartDetails["projectTitle"],
                       projectSummary: bodyPartDetails[
@@ -289,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: visionBoardDetails["projectTitle"],
                       projectSummary: visionBoardDetails[
@@ -300,7 +298,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, kpVisionBoard);
                       },
                     ),
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: chatOnDetails["projectTitle"],
                       projectSummary: chatOnDetails[
@@ -311,7 +309,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, kpChatOn);
                       },
                     ),
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: timeableDetails["projectTitle"],
                       projectSummary: timeableDetails[
@@ -327,7 +325,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: fridayAIDetails["projectTitle"],
                       projectSummary: fridayAIDetails[
@@ -338,7 +336,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, kpFridayAI);
                       },
                     ),
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: schoolManagerDetails["projectTitle"],
                       projectSummary: schoolManagerDetails[
@@ -349,7 +347,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, kpSchoolManager);
                       },
                     ),
-                    ProjectCard(
+                    DesktopProjectCard(
                       context: context,
                       projectTitle: genderPredictorDetails["projectTitle"],
                       projectSummary: genderPredictorDetails[
@@ -376,7 +374,7 @@ class _HomePageState extends State<HomePage> {
     return ClipPath(
       clipper: MyClipper(),
       child: Container(
-        color: Colors.blue,
+        color: myColors.primaryColor,
         padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
@@ -633,7 +631,7 @@ class _HomePageState extends State<HomePage> {
                         tag: "myDP",
                         child: CircleAvatar(
                           radius: 95.0,
-                          backgroundColor: Colors.blue,
+                          backgroundColor: myColors.primaryColor,
                           backgroundImage: AssetImage(
                             'images/ps.jpg',
                           ),
@@ -775,7 +773,7 @@ class _HomePageState extends State<HomePage> {
                           launch(
                               'https://thededicatedprogrammer.blogspot.com/');
                         },
-                        color: Colors.blue,
+                        color: myColors.primaryColor,
                         child: Text(
                           'View Blog',
                           style: TextStyle(
@@ -796,35 +794,5 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
-}
-
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height - 80);
-    path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 80);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
-  }
-}
-
-class MobileHomePage extends StatefulWidget {
-  @override
-  _MobileHomePageState createState() => _MobileHomePageState();
-}
-
-class _MobileHomePageState extends State<MobileHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return;
   }
 }

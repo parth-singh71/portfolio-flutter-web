@@ -3,12 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:portfolio/colors.dart';
+import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/bullet_text.dart';
 import 'package:portfolio/widgets/elevated_container.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
 
-class ProjectBody extends StatelessWidget {
-  ProjectBody({
+class DesktopProjectBody extends StatelessWidget {
+  DesktopProjectBody({
     @required this.projectDetailsList,
     @required this.projectDuration,
     this.projectLinks,
@@ -149,14 +150,14 @@ class ProjectBody extends StatelessWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [Image.asset('images/ps.jpg')],
+                              children: [Image.asset(kNoImgAvailable)],
                             ),
                           ),
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [Image.asset('images/ps.jpg')],
+                              children: [Image.asset(kNoImgAvailable)],
                             ),
                           )
                         ],

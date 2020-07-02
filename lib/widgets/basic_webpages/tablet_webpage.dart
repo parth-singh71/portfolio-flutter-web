@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/footers/desktop_footer.dart';
-import 'package:portfolio/widgets/headers/desktop_header.dart';
+import 'package:portfolio/widgets/footers/tablet_footer.dart';
+import 'package:portfolio/widgets/headers/tablet_header.dart';
 
-
-class DesktopWebpage extends StatelessWidget {
-  const DesktopWebpage({
+class TabletWebpage extends StatelessWidget {
+  const TabletWebpage({
     Key key,
     @required this.backgroundColor,
     @required this.customBody,
@@ -30,9 +29,9 @@ class DesktopWebpage extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    DesktopHeader(webpage: webpage),
+                    TabletHeader(webpage: webpage),
                     body,
-                    DesktopFooter(webpage: webpage),
+                    TabletFooter(webpage: webpage),
                   ],
                 ),
               ),

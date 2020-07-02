@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/pages/single_project_page.dart';
-import 'package:portfolio/widgets/basic_webpage.dart';
+import 'package:portfolio/widgets/project_body/project_body.dart';
+import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
 
 class FacialFeatureProjectPage extends StatefulWidget {
   @override
@@ -15,6 +15,7 @@ class _FacialFeatureProjectPageState extends State<FacialFeatureProjectPage> {
     Map details = facialFeatureDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -40,6 +41,7 @@ class _BodyPartProjectPageState extends State<BodyPartProjectPage> {
     Map details = bodyPartDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -65,6 +67,7 @@ class _WritersBlogProjectPageState extends State<WritersBlogProjectPage> {
     Map details = writersBlogDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -90,6 +93,7 @@ class _VisionBoardProjectPageState extends State<VisionBoardProjectPage> {
     Map details = visionBoardDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -115,6 +119,7 @@ class _ChatOnProjectPageState extends State<ChatOnProjectPage> {
     Map details = chatOnDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -140,6 +145,7 @@ class _TimeableProjectPageState extends State<TimeableProjectPage> {
     Map details = timeableDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -165,6 +171,7 @@ class _FridayAIProjectPageState extends State<FridayAIProjectPage> {
     Map details = fridayAIDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -191,6 +198,7 @@ class _SchoolManagerProjectPageState extends State<SchoolManagerProjectPage> {
     Map details = schoolManagerDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],
@@ -218,6 +226,7 @@ class _GenderPredictorProjectPageState
     Map details = genderPredictorDetails;
     return BasicWebpage(
       webpage: Webpage.singleProject,
+      pageTitle: details["projectTitle"],
       body: ProjectBody(
         projectTitle: details["projectTitle"],
         projectSummary: details["projectSummary"],

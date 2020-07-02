@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/colors.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/widgets/basic_webpages/basic_webpage.dart';
+import 'package:portfolio/pages/about_page/desktop_about_page.dart';
+import 'package:portfolio/pages/about_page/mobile_about_page.dart';
+import 'package:portfolio/pages/about_page/tablet_about_page.dart';
+import 'package:portfolio/utils/responsive_widget.dart';
 import 'package:portfolio/widgets/bullet_text.dart';
 import 'package:portfolio/widgets/elevated_container.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
@@ -17,10 +20,10 @@ class AboutPage extends StatefulWidget {
 class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
-    return BasicWebpage(
-      webpage: Webpage.about,
-      pageTitle: "About Me",
-      body: body(),
+    return ResponsiveWidget(
+      largeScreen: DesktopAboutPage(),
+//      mediumScreen: TabletAboutPage(),
+      smallScreen: MobileAboutPage(),
     );
   }
 

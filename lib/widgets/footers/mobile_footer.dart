@@ -2,47 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:portfolio/constants.dart';
+import 'package:portfolio/widgets/elevated_container.dart';
 import 'package:portfolio/widgets/footer_icon.dart';
 import 'package:portfolio/widgets/links.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/colors.dart';
 
-class DesktopFooter extends StatelessWidget {
-  const DesktopFooter({Key key, this.webpage}) : super(key: key);
+class MobileFooter extends StatelessWidget {
+  const MobileFooter({Key key, this.webpage}) : super(key: key);
 
   final Webpage webpage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: myColors.primaryColor,
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 50.0),
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FooterIcon(
                 iconData: Icons.alternate_email,
                 link: contactLinks.email,
               ),
-              SizedBox(width: 30.0),
               FooterIcon(
                 iconData: FontAwesome.facebook,
                 link: contactLinks.facebook,
               ),
-              SizedBox(width: 30.0),
               FooterIcon(
                 iconData: FontAwesome.stack_overflow,
                 link: contactLinks.stack_overflow,
               ),
-              SizedBox(width: 30.0),
               FooterIcon(
                 iconData: FontAwesome.github,
                 link: contactLinks.github,
               ),
-              SizedBox(width: 30.0),
               FooterIcon(
                 iconData: FontAwesome.instagram,
                 link: contactLinks.instagram,
@@ -50,87 +48,68 @@ class DesktopFooter extends StatelessWidget {
             ],
           ),
           SizedBox(height: 50.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Parth Singh',
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          color: Colors.white.withOpacity(0.7),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Text(
-                        "parth.singh71@gmail.com",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.green.shade300,
-                        ),
-                      ),
-                      SizedBox(height: 15.0),
-                      Text(
-                        aboutShortText,
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Colors.white.withOpacity(0.5),
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      Container(
-                        width: 300.0,
-                        height: 50.0,
-                        margin: EdgeInsets.all(0.0),
-                        child: RaisedButton(
-                          onPressed: () {
-                            launch(contactLinks.email);
-                          },
-                          color: Colors.green,
-                          child: Text(
-                            "Let's connect, Mail Me today!",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                    ],
+          ElevatedContainer(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Parth Singh',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.black.withOpacity(0.7),
                   ),
                 ),
-              ),
+                SizedBox(height: 10.0),
+                Text(
+                  "parth.singh71@gmail.com",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.green.shade300,
+                  ),
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  aboutShortText,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Container(
+                  width: 300.0,
+                  height: 50.0,
+                  margin: EdgeInsets.all(0.0),
+                  child: RaisedButton(
+                    onPressed: () {
+                      launch(contactLinks.email);
+                    },
+                    color: Colors.green,
+                    child: Text(
+                      "Let's connect, Mail Me today!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                      ),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20.0),
+          Row(
+            children: [
               Expanded(
                 child: Container(
                   child: Column(
                     children: [
                       Text(
                         'Top Projects',
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          color: Colors.white.withOpacity(0.7),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                    ]..addAll(getFooterProjectLinks(context)),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        'Project Gallery',
                         style: TextStyle(
                           fontSize: 25.0,
                           color: Colors.white.withOpacity(0.7),

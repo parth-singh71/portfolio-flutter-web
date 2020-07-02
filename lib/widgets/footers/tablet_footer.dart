@@ -5,16 +5,17 @@ import 'package:portfolio/constants.dart';
 import 'package:portfolio/widgets/footer_icon.dart';
 import 'package:portfolio/widgets/links.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/colors.dart';
 
-class DesktopFooter extends StatelessWidget {
-  const DesktopFooter({Key key, this.webpage}) : super(key: key);
+class TabletFooter extends StatelessWidget {
+  const TabletFooter({Key key, this.webpage}) : super(key: key);
 
   final Webpage webpage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: myColors.primaryColor,
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 50.0),
       child: Column(

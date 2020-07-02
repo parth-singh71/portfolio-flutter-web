@@ -43,3 +43,36 @@ class WebpageLink extends StatelessWidget {
     );
   }
 }
+
+class FooterLink extends StatelessWidget {
+  const FooterLink({
+    Key key,
+    @required this.name,
+    @required this.onPressed,
+  }) : super(key: key);
+
+  final Function onPressed;
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Column(
+          children: [
+            Text(
+              name,
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.white.withOpacity(0.5),
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

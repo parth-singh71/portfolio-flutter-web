@@ -7,14 +7,14 @@ import 'package:portfolio/widgets/elevated_container.dart';
 import 'package:portfolio/widgets/fat_divider.dart';
 import 'package:portfolio/widgets/web_text.dart';
 
-class AboutPage extends StatefulWidget {
-  AboutPage({Key key}) : super(key: key);
+class DesktopAboutPage extends StatefulWidget {
+  DesktopAboutPage({Key key}) : super(key: key);
 
   @override
-  _AboutPageState createState() => _AboutPageState();
+  _DesktopAboutPageState createState() => _DesktopAboutPageState();
 }
 
-class _AboutPageState extends State<AboutPage> {
+class _DesktopAboutPageState extends State<DesktopAboutPage> {
   @override
   Widget build(BuildContext context) {
     return BasicWebpage(
